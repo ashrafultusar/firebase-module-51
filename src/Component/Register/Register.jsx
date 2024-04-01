@@ -1,13 +1,24 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React from "react";
+import auth from "../../firebase.config";
+
 
 const Register = () => {
 
-    const handelRegister = e => {
-        e.preventDefault();
-const email=e.target.email.value
-const password=e.target.password.value
-console.log(email,password)
-}
+  const handelRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    createUserWithEmailAndPassword( auth ,email, password)
+      .then(result=> {
+        console.log(result.user);
+      })
+      .catch(error => {
+        console.error(error);
+    })
+  };
 
   return (
     <div>
@@ -19,7 +30,6 @@ console.log(email,password)
             className="mb-4 mt-4 w-3/4 px-4 py-2"
             type="email"
             name="email"
-            
             placeholder="enter your email"
           ></input>
           <br />
@@ -27,7 +37,6 @@ console.log(email,password)
             className="w-3/4 px-4 py-2 mb-4"
             type="password"
             name="password"
-            
             placeholder="enter your password"
           ></input>
           <br />
@@ -35,7 +44,6 @@ console.log(email,password)
             className="w-3/4 btn btn-sm mb-4"
             type="submit"
             name="Register"
-            
           ></input>
         </form>
       </div>

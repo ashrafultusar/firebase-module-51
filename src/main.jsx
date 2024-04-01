@@ -8,6 +8,7 @@ import Root from "./Component/Root/Root.jsx";
 import Hoom from "./Component/Hoom/Hoom.jsx";
 import Login from "./Login/Login.jsx";
 import Register from "./Component/Register/Register.jsx";
+import HeroRegister from "./Component/Heroregister/HeroRegister.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element:<Register></Register>
+      },
+      {
+        path: '/heroRegister',
+        element: <HeroRegister></HeroRegister>
       }
 
  ]
